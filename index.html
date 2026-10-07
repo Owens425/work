@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Owen Wilkinson Websites</title>
+<meta name="description" content="Websites for pubs, cafés and shops in Antrim and Ballymena, built and kept up to date by Owen Wilkinson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a job file. The pitch first, then Project 001 set out like a job
+   sheet, with the facts down the margin and the work beside them. */
+:root{
+  --paper:#F6F8F8;
+  --paper-2:#EAF0F1;
+  --ink:#172024;
+  --ink-2:#48565C;
+  --dim:#6F7E84;
+  --rule:#D3DBDE;
+  --teal:#3D6476;
+  --teal-ink:#2E4E5C;
+  --on-teal:#F6F8F8;
+  --shadow:rgb(23 32 36 / .14);
+
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans",system-ui,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+
+  --wrap:70rem;
+  --gut:clamp(1rem,4.5vw,2.5rem);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1517;--paper-2:#162023;--ink:#E6ECEE;--ink-2:#AAB8BD;--dim:#7E8E94;
+    --rule:#28343A;--teal:#86B8CB;--teal-ink:#A8CDDB;--on-teal:#0F1517;--shadow:rgb(0 0 0 / .45);
+    color-scheme:dark}
+}
+:root[data-theme="dark"]{
+  --paper:#0F1517;--paper-2:#162023;--ink:#E6ECEE;--ink-2:#AAB8BD;--dim:#7E8E94;
+  --rule:#28343A;--teal:#86B8CB;--teal-ink:#A8CDDB;--on-teal:#0F1517;--shadow:rgb(0 0 0 / .45);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+.label{margin:0;font-family:var(--mono);font-weight:500;font-size:.74rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim)}
+
+/* ---------------------------------------------------------------- top */
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem}
+.mark{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em;text-decoration:none}
+.top__tel{font-family:var(--mono);font-weight:500;font-size:.9rem;color:var(--teal-ink);text-decoration:none;
+  white-space:nowrap}
+.top__tel:hover{text-decoration:underline;text-underline-offset:.2em}
+
+/* ---------------------------------------------------------------- hero */
+.hero .wrap{padding-block:clamp(3rem,9vw,6.5rem) clamp(2.5rem,7vw,4.5rem)}
+.hero h1{margin:.9rem 0 0;max-width:15ch;font-family:var(--display);font-weight:600;
+  font-size:clamp(2.5rem,7.2vw,4.9rem);line-height:1.02;letter-spacing:-.022em;text-wrap:balance;
+  font-variation-settings:"opsz" 144}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--teal)}
+.hero__lede{margin:1.5rem 0 0;max-width:36rem;font-size:clamp(1.1rem,2.2vw,1.28rem);color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:.7rem 1.3rem;
+  font-family:var(--body);font-weight:600;font-size:1rem;text-decoration:none;border-radius:4px;
+  border:1.5px solid var(--teal);background:var(--teal);color:var(--on-teal);cursor:pointer}
+.btn:hover{background:var(--teal-ink);border-color:var(--teal-ink)}
+.btn--line{background:none;color:var(--ink)}
+.btn--line:hover{background:var(--paper-2);border-color:var(--teal);color:var(--ink)}
+.btn .num{font-family:var(--mono);font-weight:500;letter-spacing:.02em}
+
+/* ---------------------------------------------------------------- sections */
+.sec{border-top:1px solid var(--rule)}
+.sec>.wrap{padding-block:clamp(2.75rem,7vw,5rem)}
+.sec__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-bottom:clamp(1.5rem,4vw,2.5rem)}
+.sec__head h2,.contact h2{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.6vw,2.4rem);
+  line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+
+/* ---------------------------------------------------------------- project */
+.job{display:grid;grid-template-columns:15.5rem minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.job__no{margin:0;font-family:var(--mono);font-weight:500;font-size:clamp(3.4rem,7vw,5rem);line-height:.9;
+  letter-spacing:-.04em;color:var(--teal)}
+.job__no small{display:block;margin-bottom:.6rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim);line-height:1}
+.facts{margin:1.75rem 0 0;display:grid;gap:.95rem}
+.facts div{border-top:1px solid var(--rule);padding-top:.7rem}
+.facts dt{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim)}
+.facts dd{margin:.15rem 0 0;font-weight:500}
+.facts a{color:var(--teal-ink);text-underline-offset:.2em}
+.job__body{min-width:0}
+.job__body h3{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.4vw,3rem);
+  line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.job__lede{margin:1rem 0 0;max-width:40rem;color:var(--ink-2);font-size:1.12rem}
+
+/* a browser window, just enough to say "this is the real address" */
+.browser{margin:2rem 0 0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--paper-2);
+  box-shadow:0 22px 44px -26px var(--shadow)}
+.browser__bar{display:flex;align-items:center;gap:.8rem;padding:.55rem .8rem;border-bottom:1px solid var(--rule)}
+.dots{display:flex;gap:.35rem;flex:none}
+.dots i{width:.6rem;height:.6rem;border-radius:50%;background:var(--rule)}
+.url{flex:1;min-width:0;padding:.28rem .7rem;border-radius:4px;background:var(--paper);font-family:var(--mono);
+  font-size:.78rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+figcaption{margin-top:.7rem;font-size:.9rem;color:var(--dim)}
+.browser+figcaption{margin-top:.7rem}
+
+.built{margin:2.5rem 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.4rem 2.2rem}
+.built li{border-top:2px solid var(--ink);padding-top:.8rem}
+.built b{display:block;font-weight:600;margin-bottom:.2rem}
+.built span{color:var(--ink-2);font-size:.98rem}
+
+.phones{margin:3rem 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.6rem,3vw,2rem)}
+.phone{margin:0;min-width:0}
+.phone__frame{border:clamp(4px,1vw,7px) solid var(--ink);border-radius:clamp(14px,3vw,30px);overflow:hidden;
+  background:var(--ink);box-shadow:0 22px 40px -24px var(--shadow)}
+.phone__frame img{width:100%;aspect-ratio:390/844;object-fit:cover;object-position:top}
+.phone figcaption{font-size:.86rem}
+
+.visit{margin:2.75rem 0 0}
+
+/* ---------------------------------------------------------------- how */
+.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem 2.2rem;
+  counter-reset:step}
+.steps li{counter-increment:step;border-top:1px solid var(--rule);padding-top:1rem}
+.steps li::before{content:counter(step);display:block;font-family:var(--mono);font-weight:500;font-size:.8rem;
+  color:var(--teal);margin-bottom:.55rem}
+.steps h3{margin:0;font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2}
+.steps p{margin:.5rem 0 0;color:var(--ink-2)}
+
+/* ---------------------------------------------------------------- prices */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.price{border:1px solid var(--rule);border-radius:6px;padding:clamp(1.25rem,3.5vw,2rem);background:var(--paper)}
+.price--main{border:1.5px solid var(--teal);background:var(--paper-2)}
+.price__tag{margin:0 0 .9rem}
+.price__amt{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5vw,3rem);line-height:1;
+  letter-spacing:-.02em}
+.price__then{margin:.45rem 0 0;font-family:var(--mono);font-weight:500;font-size:.95rem;color:var(--teal-ink)}
+.price p.price__what{margin:1rem 0 0;color:var(--ink-2)}
+
+/* ---------------------------------------------------------------- contact */
+.contact h2{max-width:18ch}
+.contact__intro{margin:1rem 0 0;max-width:34rem;color:var(--ink-2);font-size:1.12rem}
+.lines{margin:2rem 0 0;display:grid;gap:1rem;max-width:40rem}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding:1rem 1.2rem;border:1px solid var(--rule);
+  border-radius:6px;background:var(--paper-2)}
+.line .label{flex:0 0 5.5rem}
+.line__v{flex:1 1 12rem;min-width:0;font-family:var(--mono);font-weight:500;font-size:clamp(1rem,3.2vw,1.2rem);
+  color:var(--ink);text-decoration:none;overflow-wrap:anywhere;user-select:all}
+a.line__v:hover{color:var(--teal-ink);text-decoration:underline;text-underline-offset:.2em}
+.copy{min-height:40px;padding:.4rem .9rem;border:1px solid var(--rule);border-radius:4px;background:var(--paper);
+  color:var(--ink);font:600 .88rem var(--body);cursor:pointer}
+.copy:hover{border-color:var(--teal)}
+.copy[data-done]{color:var(--teal-ink);border-color:var(--teal)}
+
+.foot{border-top:1px solid var(--rule)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;padding-block:1.5rem;
+  font-size:.88rem;color:var(--dim)}
+
+/* ---------------------------------------------------------------- narrow */
+@media (max-width:52rem){
+  .job{grid-template-columns:1fr}
+  .job__side{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.25rem 2rem;align-items:start}
+  .facts{margin:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 1.2rem}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:40rem){
+  .job__side{grid-template-columns:1fr}
+  .built{grid-template-columns:1fr}
+  .prices{grid-template-columns:1fr}
+  .phone figcaption{font-size:.78rem;line-height:1.35}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" id="top">Owen Wilkinson</a>
+    <a class="top__tel" href="tel:+447850994564">07850 994564</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">Websites &middot; Antrim &amp; Ballymena</p>
+      <h1>Websites for <em>local</em> pubs, caf&eacute;s and shops.</h1>
+      <p class="hero__lede">I&rsquo;m Owen, from Antrim. I build your website, put it on your own web
+        address and keep it up to date, so your hours, menu and what&rsquo;s on are right whenever
+        customers look you up.</p>
+      <div class="cta">
+        <a class="btn" href="tel:+447850994564">Give me a buzz <span class="num">07850 994564</span></a>
+        <a class="btn btn--line" href="#work">See my work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2>Work</h2>
+        <p class="label">One project so far, live since September 2026</p>
+      </div>
+
+      <article class="job">
+        <aside class="job__side">
+          <p class="job__no"><small>Project</small>001</p>
+          <dl class="facts">
+            <div><dt>Client</dt><dd>The Front Page Bar</dd></div>
+            <div><dt>Where</dt><dd>Ballymoney Street, Ballymena</dd></div>
+            <div><dt>Live since</dt><dd>30 September 2026</dd></div>
+            <div><dt>Pages</dt><dd>8</dd></div>
+            <div><dt>Web address</dt><dd><a href="https://thefrontpagebar.com" target="_blank" rel="noopener">thefrontpagebar.com</a></dd></div>
+          </dl>
+        </aside>
+
+        <div class="job__body">
+          <h3>The Front Page Bar, Ballymena</h3>
+          <p class="job__lede">A town-centre pub with live music every Saturday and a karaoke lounge
+            upstairs. Before, it had a one-page website with a header, a contact form and a phone number,
+            and nothing about opening hours, drinks or who was playing.</p>
+
+          <figure class="shot">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="url">thefrontpagebar.com</span>
+              </div>
+              <img src="img/fp-home-desktop.jpg" width="1440" height="900"
+                   alt="The Front Page Bar home page: the teal Front Page Bar logo above the line 'A local act on the floor every Saturday from 5pm'">
+            </div>
+            <figcaption>The home page. The name comes from the newspaper office that once stood next door.</figcaption>
+          </figure>
+
+          <ul class="built">
+            <li><b>A look taken from the bar itself</b><span>A newspaper front page for the name, the teal of
+              the sign outside, and dark oak like the frames on the walls inside.</span></li>
+            <li><b>Their logo, redrawn</b><span>Traced so it draws itself on when the site opens.</span></li>
+            <li><b>The full drinks list</b><span>From the bar&rsquo;s own menus, with the cocktails and the
+              alcohol-free range.</span></li>
+            <li><b>What&rsquo;s On, every month</b><span>Each Saturday&rsquo;s act from the bar&rsquo;s poster,
+              updated when the new month&rsquo;s line-up comes in.</span></li>
+            <li><b>Room hire that books itself</b><span>The karaoke lounge at &pound;100 for four hours, with a
+              button that opens the contact form with the booking already picked.</span></li>
+            <li><b>On their own web address</b><span>Moved onto thefrontpagebar.com without touching the
+              bar&rsquo;s email, and enquiries go straight to their inbox.</span></li>
+          </ul>
+
+          <div class="phones">
+            <figure class="phone">
+              <div class="phone__frame"><img src="img/fp-home-phone.jpg" width="780" height="1688" loading="lazy"
+                alt="The Front Page Bar home page on a phone"></div>
+              <figcaption>Home, on a phone</figcaption>
+            </figure>
+            <figure class="phone">
+              <div class="phone__frame"><img src="img/fp-drinks-phone.jpg" width="780" height="1688" loading="lazy"
+                alt="The drinks list on a phone, starting with the draught beers: Guinness, Tennent's, Rockshore, Smithwick's and Harp"></div>
+              <figcaption>The drinks list</figcaption>
+            </figure>
+            <figure class="phone">
+              <div class="phone__frame"><img src="img/fp-roomhire-phone.jpg" width="780" height="1688" loading="lazy"
+                alt="The Room Hire page on a phone: Book the lounge, room hire £100, four hours, full bar"></div>
+              <figcaption>Booking the karaoke lounge</figcaption>
+            </figure>
+          </div>
+
+          <figure class="shot" style="margin:3rem 0 0">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="url">thefrontpagebar.com/whats-on.html</span>
+              </div>
+              <img src="img/fp-whatson-desktop.jpg" width="1440" height="900" loading="lazy"
+                   alt="The What's On page listing October 2026: Paul Mahon, Frank Carbery, Matt Caulderwood, Andy McGregor and Bassman &amp; Her, every Saturday at 5pm">
+            </div>
+            <figcaption>October&rsquo;s line-up, straight from the bar&rsquo;s poster.</figcaption>
+          </figure>
+
+          <p class="visit"><a class="btn btn--line" href="https://thefrontpagebar.com" target="_blank" rel="noopener">Visit thefrontpagebar.com</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec__head"><h2>How it works</h2></div>
+      <ol class="steps">
+        <li><h3>A quick chat</h3><p>I call in or ring you. You tell me what customers keep asking about:
+          hours, the menu, events, bookings.</p></li>
+        <li><h3>A preview on your phone</h3><p>I build it and send you a link to try. You tell me what
+          to change, and I change it.</p></li>
+        <li><h3>Live, and kept up to date</h3><p>It goes live on your own web address. When something
+          changes, send me a message and I&rsquo;ll update it.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="prices">
+    <div class="wrap">
+      <div class="sec__head"><h2>What it costs</h2><p class="label">Two ways to pay</p></div>
+      <div class="prices">
+        <div class="price price--main">
+          <p class="label price__tag">The Front Page&rsquo;s plan</p>
+          <p class="price__amt">&pound;60 to start</p>
+          <p class="price__then">then &pound;15 a month</p>
+          <p class="price__what">The monthly fee covers updates and any changes you need, like new events,
+            menu changes and photos.</p>
+        </div>
+        <div class="price">
+          <p class="label price__tag">Pay once</p>
+          <p class="price__amt">&pound;200</p>
+          <p class="price__then">one-off, no monthly fee</p>
+          <p class="price__what">The website is built and handed over to you, with nothing more to pay each
+            month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <h2>Got a business without a website?</h2>
+      <p class="contact__intro">Or one that&rsquo;s out of date? Ring or text me, or send an email, and I&rsquo;ll
+        call in for a chat.</p>
+      <div class="lines">
+        <div class="line">
+          <span class="label">Phone</span>
+          <a class="line__v" id="v-phone" href="tel:+447850994564">07850 994564</a>
+          <button class="copy" type="button" id="copy-phone" data-copy="07850994564">Copy number</button>
+        </div>
+        <div class="line">
+          <span class="label">Email</span>
+          <a class="line__v" id="v-email" href="mailto:owenpaul308@gmail.com">owenpaul308@gmail.com</a>
+          <button class="copy" type="button" id="copy-email" data-copy="owenpaul308@gmail.com">Copy email</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>&copy; 2026 Owen Wilkinson &middot; Antrim, Northern Ireland</span>
+    <span>Websites for local businesses</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function done(btn) {
+    var was = btn.textContent;
+    btn.textContent = "Copied";
+    btn.setAttribute("data-done", "");
+    setTimeout(function () { btn.textContent = was; btn.removeAttribute("data-done"); }, 1800);
+  }
+  function selectText(el) {
+    try {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    } catch (e) {}
+  }
+  [].forEach.call(document.querySelectorAll(".copy"), function (btn) {
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      var shown = btn.parentNode.querySelector(".line__v");
+      try {
+        navigator.clipboard.writeText(text).then(function () { done(btn); },
+          function () { selectText(shown); btn.textContent = "Selected, press copy"; });
+      } catch (e) { selectText(shown); btn.textContent = "Selected, press copy"; }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

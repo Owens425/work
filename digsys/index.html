@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digsy's Diner | U.S. inspired, locally sourced | Ballymena</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Digsy's Diner on Lower Mill Street, Ballymena: stacked burgers, loaded fries, American hot dogs and thick shakes. Order online for collection or delivery.">
+<meta name="theme-color" content="#031C03">
+<link rel="icon" href="img/logo-web.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Monoton&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Digsy's: the deep green and mustard of their own order site, the ketchup and
+   lettuce of the burger in the logo, Anton for the logo's condensed lettering,
+   and one neon sign. Layout: a diner, top to bottom: the sign, the specials
+   board, the menu, the counter (how to order), and the door (where we are). */
+:root{
+  --forest:#031C03; --forest-2:#0A2911; --forest-3:#123A1B;
+  --mustard:#DFA730; --mustard-hot:#F7C042; --mustard-deep:#A9761A;
+  --cream:#FFF6E2; --cream-2:#F5E8C8; --ink:#110D08; --ink-2:#4A4235;
+  --ketchup:#D63A25; --lettuce:#8DC63F;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --neon:"Monoton","Anton",Impact,sans-serif;
+  --body:"Work Sans",system-ui,"Segoe UI",Arial,sans-serif;
+  --wrap:74rem; --gut:clamp(1rem,4.5vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5.5rem}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+img{height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mustard-hot);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.012em;line-height:.98;margin:0;text-wrap:balance}
+.kick{margin:0;font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mustard)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:52px;padding:.8rem 1.5rem;
+  border-radius:999px;font-family:var(--body);font-weight:700;font-size:1.02rem;text-decoration:none;cursor:pointer;
+  border:2px solid var(--mustard);background:var(--mustard);color:var(--forest);
+  box-shadow:0 5px 0 var(--mustard-deep);transition:transform .14s ease,box-shadow .14s ease,background .14s ease}
+.btn:hover{background:var(--mustard-hot);transform:translateY(-2px);box-shadow:0 7px 0 var(--mustard-deep)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--mustard-deep)}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.btn--ghost{background:transparent;color:var(--cream);border-color:rgb(255 246 226 / .5);box-shadow:none}
+.btn--ghost:hover{background:rgb(255 246 226 / .08);border-color:var(--cream);box-shadow:none}
+.btn--dark{background:var(--forest);color:var(--cream);border-color:var(--forest);box-shadow:0 5px 0 #000}
+.btn--dark:hover{background:var(--forest-3);box-shadow:0 7px 0 #000}
+
+/* the honest note: small, out of the way, gone when the site goes live */
+.preview{background:var(--ink);color:rgb(255 246 226 / .75);font-size:.76rem;text-align:center;padding:.38rem var(--gut);letter-spacing:.02em}
+.preview b{color:var(--mustard);font-weight:600}
+
+/* ------------------------------------------------------------------ header */
+.top{position:sticky;top:0;z-index:30;background:rgb(3 28 3 / .94);backdrop-filter:saturate(1.3) blur(8px);
+  border-bottom:1px solid rgb(223 167 48 / .22)}
+.top .wrap{display:flex;align-items:center;gap:1rem;padding-block:.55rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
+.brand img{width:52px}
+.brand span{font-family:var(--display);font-size:1.5rem;color:var(--mustard);letter-spacing:.03em;text-transform:uppercase}
+.nav{display:flex;gap:1.6rem}
+.nav a{color:var(--cream);text-decoration:none;font-weight:600;font-size:.95rem;padding:.3rem 0;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--mustard)}
+.top .btn{min-height:44px;padding:.5rem 1.15rem;font-size:.93rem;box-shadow:0 4px 0 var(--mustard-deep)}
+@media (max-width:52rem){.nav{display:none}}
+@media (max-width:30rem){.brand span{font-size:1.25rem}.brand img{width:44px}}
+
+/* -------------------------------------------------------------------- hero */
+.hero{position:relative;background:
+  radial-gradient(60rem 30rem at 85% 30%,rgb(223 167 48 / .14),transparent 60%),
+  radial-gradient(40rem 26rem at 5% 90%,rgb(141 198 63 / .08),transparent 60%),var(--forest);color:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;
+  padding-block:clamp(2.6rem,7vw,5.5rem) clamp(4.5rem,9vw,6.5rem)}
+.neon{display:inline-flex;align-items:center;gap:.9rem;margin-bottom:1.6rem;padding:.55rem 1rem .55rem .7rem;border-radius:14px;
+  border:1px solid rgb(255 246 226 / .14);background:rgb(0 0 0 / .25)}
+.neon__word{font-family:var(--neon);font-size:clamp(1.5rem,3.6vw,2rem);line-height:1;letter-spacing:.06em;color:#FFE7A8;
+  text-shadow:0 0 4px #fff3,0 0 10px var(--mustard-hot),0 0 22px var(--mustard),0 0 44px var(--mustard)}
+.neon.is-closed .neon__word{color:#FFC1B5;text-shadow:0 0 4px #fff3,0 0 10px #ff6a52,0 0 22px var(--ketchup),0 0 44px var(--ketchup)}
+.neon__note{font-size:.92rem;line-height:1.3;color:rgb(255 246 226 / .85)}
+.neon__note b{display:block;color:var(--cream);font-weight:700}
+.hero h1{font-size:clamp(2.75rem,7.6vw,5.3rem)}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 .l2{color:var(--mustard)}
+.hero__lede{margin:1.4rem 0 0;max-width:33rem;font-size:clamp(1.08rem,2.1vw,1.28rem);color:rgb(255 246 226 / .86)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.counts{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:2.2rem 0 0;padding:0;list-style:none}
+.counts li{font-size:.9rem;color:rgb(255 246 226 / .72)}
+.counts b{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--cream);margin-right:.35rem;vertical-align:-.12em}
+
+.sign{position:relative;justify-self:center;width:min(100%,27rem);aspect-ratio:1}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 46s linear infinite}
+.ring text{font-family:var(--display);font-size:15.5px;letter-spacing:5.2px;fill:var(--mustard);text-transform:uppercase}
+.disc{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 50% 38%,#FFFDF4,var(--cream) 62%,var(--cream-2));
+  border:9px solid var(--mustard);box-shadow:0 0 0 7px var(--forest),0 0 0 9px rgb(223 167 48 / .5),
+  0 40px 70px -28px rgb(0 0 0 / .75),inset 0 -14px 30px rgb(169 118 26 / .18);animation:bob 6s ease-in-out infinite}
+.disc img{position:absolute;inset:12%;width:76%;height:76%;object-fit:contain}
+.sticker{position:absolute;top:6%;right:-2%;z-index:2;background:var(--ketchup);color:#fff;font-family:var(--display);text-transform:uppercase;
+  font-size:1.2rem;line-height:1.02;padding:.75rem .95rem;border-radius:14px;transform:rotate(7deg);box-shadow:0 12px 26px -10px rgb(0 0 0 / .6)}
+.sticker small{display:block;font-family:var(--body);font-weight:600;text-transform:none;font-size:.8rem;opacity:.95}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero .drip{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(34px,6vw,70px);color:var(--mustard);display:block}
+
+@media (max-width:52rem){
+  .hero .wrap{grid-template-columns:1fr}
+  .sign{width:min(86%,18rem);margin:.5rem auto 0}
+}
+
+/* --------------------------------------------------------------- ticker */
+.ticker{background:var(--mustard);color:var(--forest);overflow:hidden;border-bottom:3px solid var(--ink)}
+.ticker__row{display:flex;width:max-content;gap:1.4rem;padding:.75rem 0;animation:tick 55s linear infinite}
+.ticker span{font-family:var(--display);font-size:1.45rem;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.ticker b{color:var(--ketchup);font-size:1.1rem;align-self:center}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* -------------------------------------------------------- spooky specials */
+.spooky{background:radial-gradient(50rem 22rem at 50% 0%,rgb(214 58 37 / .25),transparent 70%),#0B0906;color:var(--cream);
+  padding-block:clamp(3.2rem,8vw,5.5rem)}
+.spooky__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 2rem;margin-bottom:2rem}
+.spooky h2{font-size:clamp(2.6rem,7vw,4.6rem);color:#FFB49F;text-shadow:0 0 18px rgb(214 58 37 / .55)}
+.spooky__head p{margin:.5rem 0 0;max-width:30rem;color:rgb(255 246 226 / .78)}
+.spooks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+.spook{position:relative;border:1px solid rgb(255 180 159 / .28);border-radius:20px;padding:1.6rem 1.5rem 1.5rem;
+  background:linear-gradient(180deg,rgb(214 58 37 / .14),rgb(0 0 0 / 0) 60%),#14100B}
+.spook h3{font-size:1.9rem;color:var(--cream);padding-right:4.5rem}
+.spook p{margin:.6rem 0 0;color:rgb(255 246 226 / .78);font-size:.98rem}
+.spook__price{position:absolute;top:1.3rem;right:1.3rem;margin:0!important;font-family:var(--display);font-size:1.5rem!important;
+  color:var(--forest)!important;background:var(--mustard);border-radius:999px;padding:.2rem .75rem}
+.spooky__cta{margin-top:2rem}
+@media (max-width:56rem){.spooks{grid-template-columns:1fr}}
+
+/* --------------------------------------------------------------- the menu */
+.menu{position:relative;padding-block:clamp(3.4rem,8vw,6rem);background:var(--cream)}
+.checks{height:22px;background:conic-gradient(var(--ink) 25%,var(--cream) 0 50%,var(--ink) 0 75%,var(--cream) 0) 0 0/22px 22px}
+.menu__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 2rem;margin-bottom:1.8rem}
+.menu h2{font-size:clamp(2.8rem,7.5vw,5rem);color:var(--forest)}
+.menu__head p{margin:.4rem 0 0;color:var(--ink-2);max-width:28rem}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;padding:.3rem .2rem 1rem;margin:0 calc(var(--gut) * -1);padding-inline:var(--gut);
+  scrollbar-width:thin}
+.tabs button{flex:none;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;padding:.62rem 1.1rem;border-radius:999px;
+  border:2px solid var(--ink);background:#fff;color:var(--ink);box-shadow:0 3px 0 var(--ink);transition:transform .12s ease}
+.tabs button:hover{transform:translateY(-1px)}
+.tabs button[aria-selected="true"]{background:var(--forest);color:var(--mustard);border-color:var(--forest);box-shadow:0 3px 0 #000}
+.card{background:#fff;border:3px solid var(--ink);border-radius:26px;box-shadow:9px 9px 0 var(--ink);padding:clamp(1.3rem,3.5vw,2.4rem)}
+.board{list-style:none;margin:0;padding:0;display:grid;gap:1.15rem 2.6rem}
+.board--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.board__h{font-size:1.5rem;color:var(--mustard-deep);margin:1.6rem 0 1rem}
+.panel > .board__h:first-child{margin-top:0}
+.dish__line{display:flex;align-items:baseline;gap:.6rem}
+.dish__name{font-family:var(--display);font-size:1.38rem;text-transform:uppercase;letter-spacing:.015em;color:var(--forest);line-height:1.1}
+.dish__line i{flex:1;min-width:1rem;border-bottom:2px dotted rgb(17 13 8 / .35);transform:translateY(-.3em)}
+.dish__price{font-family:var(--display);font-size:1.3rem;color:var(--ink)}
+.dish__desc{margin:.25rem 0 0;font-size:.95rem;color:var(--ink-2);line-height:1.45;max-width:34rem}
+.tag{display:inline-block;margin-left:.45rem;padding:.08rem .42rem;border-radius:6px;font-family:var(--body);font-weight:700;
+  font-size:.66rem;letter-spacing:.06em;vertical-align:.32em;color:#fff}
+.tag--v{background:#3B8B2E}.tag--gf{background:var(--mustard-deep)}
+.menu__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:2rem;padding-top:1.4rem;
+  border-top:2px dashed rgb(17 13 8 / .2)}
+.menu__foot p{margin:0;color:var(--ink-2);font-size:.95rem}
+@media (max-width:48rem){.board--2{grid-template-columns:1fr}.card{box-shadow:6px 6px 0 var(--ink);border-radius:20px}}
+
+/* ------------------------------------------------------- how to order */
+.how{background:var(--mustard);color:var(--forest);padding-block:clamp(3rem,7vw,4.6rem);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.how h2{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:1.8rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;counter-reset:s}
+.steps li{counter-increment:s;background:var(--cream);border:3px solid var(--ink);border-radius:22px;padding:1.4rem 1.4rem 1.5rem;box-shadow:6px 6px 0 var(--ink)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;margin-bottom:.9rem;
+  background:var(--forest);color:var(--mustard);font-family:var(--display);font-size:1.4rem}
+.steps h3{font-size:1.6rem}
+.steps p{margin:.45rem 0 0;color:var(--ink-2)}
+@media (max-width:52rem){.steps{grid-template-columns:1fr}}
+
+/* -------------------------------------------------------------- visit */
+.visit{background:var(--forest);color:var(--cream);padding-block:clamp(3.4rem,8vw,5.5rem)}
+.visit__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.visit h2{font-size:clamp(2.6rem,7vw,4.4rem);color:var(--mustard)}
+.moved{display:flex;gap:.9rem;align-items:flex-start;margin:1.4rem 0 1.8rem;padding:1rem 1.1rem;border-radius:16px;
+  background:rgb(223 167 48 / .12);border:1px solid rgb(223 167 48 / .35)}
+.moved b{flex:none;font-family:var(--display);font-weight:400;text-transform:uppercase;background:var(--ketchup);color:#fff;
+  border-radius:8px;padding:.15rem .5rem;font-size:.95rem;letter-spacing:.04em}
+.moved p{margin:0;color:rgb(255 246 226 / .88);font-size:.98rem}
+.addr{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,3.6vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+.contact{margin:0 0 .4rem;color:rgb(255 246 226 / .85)}
+.contact a{color:var(--cream);font-weight:600;text-underline-offset:.2em}
+.visit .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+.hours{width:100%;border-collapse:collapse;margin-top:1.4rem;font-variant-numeric:tabular-nums}
+.hours th,.hours td{padding:.72rem .9rem;border-bottom:1px solid rgb(255 246 226 / .14);text-align:left}
+.hours td{text-align:right;color:rgb(255 246 226 / .9)}
+.hours .shut th,.hours .shut td{color:rgb(255 246 226 / .45)}
+.hours tr.is-today{background:var(--mustard)}
+.hours tr.is-today th,.hours tr.is-today td{color:var(--forest);font-weight:700}
+.hours tr.is-today th::after{content:"Today";margin-left:.6rem;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--forest);color:var(--mustard);padding:.18rem .5rem;border-radius:999px;vertical-align:.2em}
+.map{margin-top:2rem;border-radius:22px;overflow:hidden;border:3px solid var(--mustard);aspect-ratio:16/10;background:var(--forest-2)}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.9)}
+@media (max-width:52rem){.visit__grid{grid-template-columns:1fr}}
+
+/* ---------------------------------------------------------------- last call */
+.last{position:relative;background:var(--cream);text-align:center;padding-block:clamp(4.5rem,10vw,7rem) clamp(3.5rem,8vw,5rem)}
+.last .drip--up{position:absolute;top:-1px;left:0;right:0;width:100%;height:clamp(30px,5vw,60px);color:var(--forest);transform:none}
+.last h2{font-size:clamp(3.2rem,10vw,6.6rem);color:var(--forest)}
+.last h2 span{color:var(--ketchup)}
+.last p{margin:1rem auto 2rem;max-width:30rem;color:var(--ink-2);font-size:1.1rem}
+.last .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
+
+.foot{background:var(--ink);color:rgb(255 246 226 / .65);font-size:.88rem}
+.foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;padding-block:1.8rem}
+.foot__brand{display:flex;align-items:center;gap:.8rem;color:var(--cream)}
+.foot__brand img{width:46px}
+.foot a{color:var(--mustard)}
+
+/* phones: the order button never scrolls away */
+.bar{display:none}
+@media (max-width:52rem){
+  .bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;justify-content:space-between;gap:.8rem;
+    padding:.65rem var(--gut) calc(.65rem + env(safe-area-inset-bottom,0px));background:rgb(3 28 3 / .97);
+    border-top:1px solid rgb(223 167 48 / .35);color:var(--cream);font-size:.86rem}
+  .bar b{display:block;font-size:.95rem}
+  .bar .btn{min-height:46px;padding:.55rem 1.2rem;box-shadow:0 4px 0 var(--mustard-deep);white-space:nowrap;flex:none}
+  .bar > span{min-width:0;line-height:1.3}
+  body{padding-bottom:4.6rem}
+}
+
+/* motion: a short arrival, then only the slow ring, the bob and the ticker */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .rise:nth-child(2){animation-delay:.08s}.rise:nth-child(3){animation-delay:.16s}
+  .rise:nth-child(4){animation-delay:.24s}.rise:nth-child(5){animation-delay:.32s}
+  .neon__word{animation:flick 2.2s steps(1) .3s 1 both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes flick{0%{opacity:.2}8%{opacity:1}12%{opacity:.35}18%{opacity:1}55%{opacity:1}58%{opacity:.5}62%,100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ring,.disc,.ticker__row{animation:none}
+  .btn,.tabs button{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preview" role="note"><b>Website preview</b> made for Digsy's Diner by Owen Wilkinson. Menu and prices from the Digsy's order page, October 2026.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" id="top"><img src="img/logo-web.png" width="460" height="540" alt=""><span>Digsy's Diner</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#menu">Menu</a>
+      <a href="#specials">Spooky specials</a>
+      <a href="#visit">Hours &amp; directions</a>
+    </nav>
+    <a class="btn" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">Order now</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="neon rise" id="neon" aria-live="polite">
+          <span class="neon__word" data-word>Open</span>
+          <span class="neon__note" data-note><b>Wed 4pm to 8pm</b>Thu to Sat 12pm to 8pm</span>
+        </div>
+        <p class="kick rise">Lower Mill Street, Ballymena &middot; Est. 2021</p>
+        <h1 class="rise"><span>U.S. inspired.</span> <span class="l2">Locally sourced.</span></h1>
+        <p class="hero__lede rise">Stacked beef burgers, buffalo chicken, loaded fries, American hot dogs and thick
+          shakes, made fresh on Lower Mill Street. Order for collection or delivery.</p>
+        <div class="hero__cta rise">
+          <a class="btn" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+            Order now</a>
+          <a class="btn btn--ghost" href="#menu">See the menu</a>
+        </div>
+        <ul class="counts" aria-label="On the menu">
+          <li><b>23</b>burgers</li>
+          <li><b>7</b>loaded fries</li>
+          <li><b>13</b>shakes &amp; floats</li>
+          <li><b>14</b>dips</li>
+        </ul>
+      </div>
+      <div class="sign">
+        <svg class="ring" viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+          <defs><path id="circ" d="M150 150m-136 0a136 136 0 1 1 272 0a136 136 0 1 1-272 0"/></defs>
+          <text><textPath href="#circ">U.S. inspired &#9733; Locally sourced &#9733; Est. 2021 &#9733; Ballymena &#9733;</textPath></text>
+        </svg>
+        <div class="disc"><img src="img/logo-web.png" width="460" height="540" alt="Digsy's Diner, established 2021"></div>
+      </div>
+    </div>
+    <svg class="drip" viewBox="0 0 1440 84" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0H1440 V24H1386C1386 47 1384 66 1377 66C1370 66 1368 47 1368 24H1329C1329 41 1327 55 1318 55C1308 55 1306 41 1306 24H1268C1268 34 1266 41 1257 41C1247 41 1245 34 1245 24H1184C1184 35 1183 44 1176 44C1169 44 1167 35 1167 24H1107C1107 36 1104 45 1093 45C1082 45 1079 36 1079 24H1032C1032 54 1029 78 1019 78C1009 78 1007 54 1007 24H937C937 54 935 79 926 79C918 79 915 54 915 24H879C879 39 876 52 865 52C853 52 850 39 850 24H808C808 40 806 52 799 52C792 52 790 40 790 24H705C705 46 703 63 696 63C689 63 687 46 687 24H613C613 45 611 62 603 62C594 62 592 45 592 24H554C554 37 552 48 546 48C539 48 537 37 537 24H461C461 40 459 53 450 53C441 53 439 40 439 24H369C369 39 367 52 358 52C349 52 346 39 346 24H263C263 38 261 50 250 50C240 50 237 38 237 24H168C168 52 165 75 156 75C147 75 144 52 144 24H65C65 54 63 79 55 79C47 79 45 54 45 24H0Z"/></svg>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker__row"><span>Digsy&#x27;s House Burger</span><b aria-hidden="true">&#9733;</b><span>Roll With It</span><b aria-hidden="true">&#9733;</b><span>She&#x27;s American</span><b aria-hidden="true">&#9733;</b><span>Mushroom Swiss</span><b aria-hidden="true">&#9733;</b><span>Headshrinker</span><b aria-hidden="true">&#9733;</b><span>My Big Mouth</span><b aria-hidden="true">&#9733;</b><span>Columbia</span><b aria-hidden="true">&#9733;</b><span>Halloumi House Burger</span><b aria-hidden="true">&#9733;</b><span>Tennessee</span><b aria-hidden="true">&#9733;</b><span>The Big Kyp</span><b aria-hidden="true">&#9733;</b><span>Jaws</span><b aria-hidden="true">&#9733;</b><span>Halloumi Swiss</span><b aria-hidden="true">&#9733;</b><span>Chicken Swiss</span><b aria-hidden="true">&#9733;</b><span>Slippy D</span><b aria-hidden="true">&#9733;</b><span>B.B.L.T</span><b aria-hidden="true">&#9733;</b><span>Cajun Chicken Burger</span><b aria-hidden="true">&#9733;</b><span>Triple Bacon Cheese</span><b aria-hidden="true">&#9733;</b><span>El Quatro</span><b aria-hidden="true">&#9733;</b><span>Digsy&#x27;s House Burger</span><b aria-hidden="true">&#9733;</b><span>Roll With It</span><b aria-hidden="true">&#9733;</b><span>She&#x27;s American</span><b aria-hidden="true">&#9733;</b><span>Mushroom Swiss</span><b aria-hidden="true">&#9733;</b><span>Headshrinker</span><b aria-hidden="true">&#9733;</b><span>My Big Mouth</span><b aria-hidden="true">&#9733;</b><span>Columbia</span><b aria-hidden="true">&#9733;</b><span>Halloumi House Burger</span><b aria-hidden="true">&#9733;</b><span>Tennessee</span><b aria-hidden="true">&#9733;</b><span>The Big Kyp</span><b aria-hidden="true">&#9733;</b><span>Jaws</span><b aria-hidden="true">&#9733;</b><span>Halloumi Swiss</span><b aria-hidden="true">&#9733;</b><span>Chicken Swiss</span><b aria-hidden="true">&#9733;</b><span>Slippy D</span><b aria-hidden="true">&#9733;</b><span>B.B.L.T</span><b aria-hidden="true">&#9733;</b><span>Cajun Chicken Burger</span><b aria-hidden="true">&#9733;</b><span>Triple Bacon Cheese</span><b aria-hidden="true">&#9733;</b><span>El Quatro</span><b aria-hidden="true">&#9733;</b></div></div>
+
+  <section class="spooky" id="specials">
+    <div class="wrap">
+      <div class="spooky__head">
+        <div>
+          <p class="kick" style="color:#FF8E77">For Halloween</p>
+          <h2>Spooky specials</h2>
+          <p>Three Halloween specials on the menu now, alongside everything else.</p>
+        </div>
+      </div>
+      <div class="spooks"><article class="spook"><p class="spook__price">&pound;7.50</p><h3>Red Hot Tots</h3><p>Flamin hot seasoned tater tots, topped with franks hot buffalo sauce and ranch sauce.</p></article><article class="spook"><p class="spook__price">&pound;14.20</p><h3>Haunted House Burger</h3><p>Triple beef patty, mexicana cheese, mozzarella, jalapeno pickle relish, lettuce and red onion.</p></article><article class="spook"><p class="spook__price">&pound;14.20</p><h3>Poppa Legba</h3><p>Double beef patty, bacon, chilli cheese bites, double cheese, jalapeños, house dirty sauce.</p></article></div>
+      <p class="spooky__cta"><a class="btn" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">Order a spooky special</a></p>
+    </div>
+  </section>
+
+  <div class="checks" aria-hidden="true"></div>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu__head">
+        <div>
+          <p class="kick" style="color:var(--mustard-deep)">The whole board</p>
+          <h2>The menu</h2>
+        </div>
+        <p>Every burger, fry, dog and shake, with today's prices. Tap a section to browse, then order online.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menu sections"><button type="button" role="tab" id="t-burgers" aria-controls="p-burgers" aria-selected="true">Burgers</button><button type="button" role="tab" id="t-fries" aria-controls="p-fries" aria-selected="false" tabindex="-1">Loaded Fries</button><button type="button" role="tab" id="t-dogs" aria-controls="p-dogs" aria-selected="false" tabindex="-1">Hot Dogs</button><button type="button" role="tab" id="t-subs" aria-controls="p-subs" aria-selected="false" tabindex="-1">Subs</button><button type="button" role="tab" id="t-sides" aria-controls="p-sides" aria-selected="false" tabindex="-1">Sides &amp; Dips</button><button type="button" role="tab" id="t-shakes" aria-controls="p-shakes" aria-selected="false" tabindex="-1">Shakes &amp; Floats</button><button type="button" role="tab" id="t-veg" aria-controls="p-veg" aria-selected="false" tabindex="-1">Veggie &amp; GF</button><button type="button" role="tab" id="t-kids" aria-controls="p-kids" aria-selected="false" tabindex="-1">Kids &amp; Drinks</button></div>
+      <div class="card">
+        <div class="panel" role="tabpanel" id="p-burgers" aria-labelledby="t-burgers"><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Digsy&#x27;s House Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.70</span></div><p class="dish__desc">Beef patty, cheese, onions, pickles, lettuce, house burger sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Roll With It</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.20</span></div><p class="dish__desc">Beef patty, smoked streaky bacon, cheese, smokey BBQ sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">She&#x27;s American</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.20</span></div><p class="dish__desc">Beef patty, cheese, pickles, ketchup, mustard.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Mushroom Swiss</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.20</span></div><p class="dish__desc">Beef patty, cheese, mushrooms, lettuce, garlic black pepper mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Headshrinker</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.70</span></div><p class="dish__desc">Beef patty, Mexicana cheese, jalapenos, red onion, sriracha chilli crisps, headshrinker sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">My Big Mouth</span><i aria-hidden="true"></i><span class="dish__price">&pound;11.20</span></div><p class="dish__desc">Triple beef patty, triple cheese, pickles, house burger sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Columbia</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Buffalo chicken breast, mozzarella, lettuce, taco sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Halloumi House Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Halloumi patty, cheese, onions, pickles, lettuce, house burger sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Tennessee</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Southern fried chicken breast, lettuce, mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">The Big Kyp</span><i aria-hidden="true"></i><span class="dish__price">&pound;12.20</span></div><p class="dish__desc">Buffalo fried chicken, hash brown, Mexicana cheese, sriracha chilli crisps, jalapeños, red onion, chipotle mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Jaws</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.70</span></div><p class="dish__desc">Double beef patty, smoked streaky bacon, cheese, home made onion rings, relish.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Halloumi Swiss</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Grilled Halloumi, mushrooms, cheese, lettuce, garlic and black pepper mayo.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Chicken Swiss</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Chicken breast, mushrooms, cheese, lettuce, garlic and black pepper mayo.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Slippy D</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.90</span></div><p class="dish__desc">Double Beef Patty, Mozzarella, home made chilli con carne and home made coleslaw.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">B.B.L.T</span><i aria-hidden="true"></i><span class="dish__price">&pound;11.20</span></div><p class="dish__desc">Double beef patty, cheese, bacon, lettuce, tomato and house baconnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Cajun Chicken Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;12.70</span></div><p class="dish__desc">Cajun chicken breast, tomato, lettuce, mexicana cheese, homemade onion rings and house Cajun mayo.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Triple Bacon Cheese</span><i aria-hidden="true"></i><span class="dish__price">&pound;14.20</span></div><p class="dish__desc">Triple Beef Patty, triple smoked streaky bacon, triple cheese and house smokey sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">El Quatro</span><i aria-hidden="true"></i><span class="dish__price">&pound;14.20</span></div><p class="dish__desc">4 Beef patty, cheese, pickles, onions, tomato relish, mustard.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">4oz Plain Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.20</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">8oz Plain Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">4oz Cheeseburger</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.70</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">8oz Cheeseburger</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.70</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Grilled Chicken Burger</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.20</span></div></li></ul></div><div class="panel" role="tabpanel" id="p-fries" aria-labelledby="t-fries" hidden><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Salt and Chilli</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Salt and chilli chicken strips, peppers, onions, garlic mayonnaise, fresh chilli, scallions.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Katsu</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Katsu chicken strips, peppers, onions, katsu mayonnaise, fresh chilli, scallions.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Dirty Fries</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Halloumi strips, cheese, jalapenos, house dirty sauce, scallions.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Philly Cheese</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Steak strips, cheese, peppers, onions, pickles, mustard mayonnaise, chives.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Chilli Beef</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Buffalo steak strips, cheese, peppers, onions, garlic mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Kebab Loaded</span><i aria-hidden="true"></i><span class="dish__price">&pound;13.20</span></div><p class="dish__desc">Chicken strips, steak strips, cheese, lettuce, tomato, red onion, cucumber, house kebab sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Zelenskyy</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Southern fried gravy, mozzarella, chives.</p></li></ul></div><div class="panel" role="tabpanel" id="p-dogs" aria-labelledby="t-dogs" hidden><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Cincinnati Coney</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Chilli beef hot dog, Cincinnati chili, grated cheese.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">California</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Pork hot dog, bacon, grilled peppers, grilled onions, jalapenos, mayonnaise, ketchup.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">West Virginia</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.20</span></div><p class="dish__desc">Pork hot dog, chilli, coleslaw, onions, mustard.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Ballymena</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Pork hot dog, fried onions, house relish.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Veggie Dog</span><i aria-hidden="true"></i><span class="dish__price">&pound;10.00</span></div><p class="dish__desc">Moving mountains sausage, onion, pickles, mustard and ketchup.</p></li></ul></div><div class="panel" role="tabpanel" id="p-subs" aria-labelledby="t-subs" hidden><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">O.G. Philly</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Steak strips, cheese, peppers, onions, pickles, mustard mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Halloumi Philly</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Halloumi strips, cheese, peppers, onions, house kebab sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Chicken Philly</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Chicken strips, cheese, peppers, onions, house kebab sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Notorious BLT</span><i aria-hidden="true"></i><span class="dish__price">&pound;9.70</span></div><p class="dish__desc">Smoked streaky bacon, lettuce, tomato, cheese, house baconnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Buffalo Chicken Sandwich</span><i aria-hidden="true"></i><span class="dish__price">&pound;11.20</span></div><p class="dish__desc">Fried Chicken Breast, Dipped in Buffalo Sauce, Topped with Pickles, Mayo and Lettuce served on a soft Ciabatta Sub Roll.</p></li></ul></div><div class="panel" role="tabpanel" id="p-sides" aria-labelledby="t-sides" hidden><h3 class="board__h">Sides</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Fries</span><i aria-hidden="true"></i><span class="dish__price">&pound;4.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Tater Tots</span><i aria-hidden="true"></i><span class="dish__price">&pound;4.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Chilli Cheese Bites</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Onion Rings</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Chicken Strips</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Hot Honey Tenders</span><i aria-hidden="true"></i><span class="dish__price">&pound;8.00</span></div><p class="dish__desc">Homemade Chicken Tenders Dipped in Hot Honey topped with Scallions and Fresh Chilli.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Chilli Fries</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.50</span></div><p class="dish__desc">Seasoned fries topped with mozzarella and house made chilli.</p></li></ul><h3 class="board__h">Sauce pots</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Ketchup Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Mustard Mayo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Chipotle Mayo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Garlic Mayo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Taco Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Mayo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Headshrinker Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Katsu Mayo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Dirty Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Buffalo Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Kebab Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Southern Fried Gravy</span><i aria-hidden="true"></i><span class="dish__price">&pound;3.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">House Burger Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Ranch Dip</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li></ul></div><div class="panel" role="tabpanel" id="p-shakes" aria-labelledby="t-shakes" hidden><h3 class="board__h">Shakes</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Shakermaker - Build your Own</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.00</span></div><p class="dish__desc">Build your own DELUXE milkshake.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Vanilla</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Strawberry</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Chocolate</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Banana</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Irn Bru</span><i aria-hidden="true"></i><span class="dish__price">&pound;4.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Honeycomb</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Rhubarb and Custard</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Chunky Monkey</span><i aria-hidden="true"></i><span class="dish__price">&pound;5.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Bananacomb</span><i aria-hidden="true"></i><span class="dish__price">&pound;6.00</span></div><p class="dish__desc">Honeycomb ice cream, banana syrup, toffee sauce, biscoff crumb.</p></li></ul><h3 class="board__h">Floats</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Digsy&#x27;s Coke Float</span><i aria-hidden="true"></i><span class="dish__price">&pound;2.50</span></div><p class="dish__desc">Coke, vanilla ice cream.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Digsy&#x27;s Orange Joker</span><i aria-hidden="true"></i><span class="dish__price">&pound;2.50</span></div><p class="dish__desc">Fanta orange, vanilla ice cream.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Digsy&#x27;s Raspberry Ripple Float</span><i aria-hidden="true"></i><span class="dish__price">&pound;3.00</span></div><p class="dish__desc">Raspberry soda, raspberry ripple ice cream.</p></li></ul></div><div class="panel" role="tabpanel" id="p-veg" aria-labelledby="t-veg" hidden><h3 class="board__h">Vegetarian</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">She&#x27;s American<span class="tag tag--v">V</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Beyond patty, cheese, pickles, ketchup, mustard mayo.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Headshrinker<span class="tag tag--v">V</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.90</span></div><p class="dish__desc">Beyond patty, mexicana cheese, jalapenos, red onion, sriracha chilli crisps, headshrinker sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">My Big Mouth<span class="tag tag--v">V</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;14.40</span></div><p class="dish__desc">Triple Beyond patty, triple cheese, pickles, house sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Haunted House Burger<span class="tag tag--v">V</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;13.20</span></div><p class="dish__desc">Double beyond patty, mexicana cheese, mozzarella, jalapeno pickle relish, lettuce, red onion.</p></li></ul><h3 class="board__h">Gluten free burgers</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">House Burger<span class="tag tag--gf">GF</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.70</span></div><p class="dish__desc">Beef patty, cheese, onions, pickles, lettuce, house burger sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Roll With It<span class="tag tag--gf">GF</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Beef patty, smoked streaky bacon, cheese, smokey BBQ sauce.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Mushroom Swiss<span class="tag tag--gf">GF</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.70</span></div><p class="dish__desc">Beef patty, cheese, mushrooms, lettuce, garlic black pepper mayonnaise.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">She&#x27;s American<span class="tag tag--gf">GF</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;8.20</span></div><p class="dish__desc">Beef patty, cheese, pickles, ketchup, mustard mayo.</p></li><li class="dish"><div class="dish__line"><span class="dish__name">Tennessee<span class="tag tag--gf">GF</span></span><i aria-hidden="true"></i><span class="dish__price">&pound;11.20</span></div><p class="dish__desc">Southern fried chicken breast, lettuce, mayonnaise.</p></li></ul></div><div class="panel" role="tabpanel" id="p-kids" aria-labelledby="t-kids" hidden><h3 class="board__h">Kids meals</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Kids Sausage and Side Meal</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Kids Tenders and Side Meal</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.00</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Kids Chip Cheese and Gravy</span><i aria-hidden="true"></i><span class="dish__price">&pound;7.00</span></div></li></ul><h3 class="board__h">Cold drinks</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Coke 330ml</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Diet Coke 330ml</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Coke Zero 330ml</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Still Water</span><i aria-hidden="true"></i><span class="dish__price">&pound;1.00</span></div></li></ul><h3 class="board__h">Sodas</h3><ul class="board board--2"><li class="dish"><div class="dish__line"><span class="dish__name">Lime Soda</span><i aria-hidden="true"></i><span class="dish__price">&pound;2.50</span></div></li><li class="dish"><div class="dish__line"><span class="dish__name">Pineapple Soda</span><i aria-hidden="true"></i><span class="dish__price">&pound;2.50</span></div></li></ul></div>
+        <div class="menu__foot">
+          <p>Allergen information for every dish is on our order page.</p>
+          <a class="btn btn--dark" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">Order from the menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <h2>How ordering works</h2>
+      <ol class="steps">
+        <li><h3>Pick your food</h3><p>Choose from the full menu on our order page, with allergen info for every dish.</p></li>
+        <li><h3>Collection or delivery</h3><p>Tell us which when you check out, and pay online.</p></li>
+        <li><h3>Ready in about 20 minutes</h3><p>Everything is made to order. Collection is usually ready in around twenty minutes.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit__grid">
+      <div>
+        <p class="kick">Come and see us</p>
+        <h2>Hours &amp; directions</h2>
+        <div class="moved"><b>New home</b><p>We've moved to Lower Mill Street. If an old listing sent you somewhere else, this is the place.</p></div>
+        <p class="addr">72-74 Lower Mill Street<br>Ballymena BT43 5AF</p>
+        <p class="contact">Call <a href="tel:+447946291019">07946 291019</a></p>
+        <p class="contact">Email <a href="mailto:niamh@digsysdiner.co.uk">niamh@digsysdiner.co.uk</a></p>
+        <div class="btns">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=72-74%20Lower%20Mill%20Street%2C%20Ballymena%20BT43%205AF" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn--ghost" href="https://www.facebook.com/DigsysDinerNI/" target="_blank" rel="noopener">Follow on Facebook</a>
+        </div>
+      </div>
+      <div>
+        <table class="hours" aria-label="Opening hours">
+          <tbody>
+            <tr data-day="1" class="shut"><th scope="row">Monday</th><td>Closed</td></tr>
+            <tr data-day="2" class="shut"><th scope="row">Tuesday</th><td>Closed</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>4pm &ndash; 8pm</td></tr>
+            <tr data-day="4"><th scope="row">Thursday</th><td>12pm &ndash; 8pm</td></tr>
+            <tr data-day="5"><th scope="row">Friday</th><td>12pm &ndash; 8pm</td></tr>
+            <tr data-day="6"><th scope="row">Saturday</th><td>12pm &ndash; 8pm</td></tr>
+            <tr data-day="0" class="shut"><th scope="row">Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+        <div class="map"><iframe title="Map: Digsy's Diner, 72-74 Lower Mill Street, Ballymena" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=72-74%20Lower%20Mill%20Street%2C%20Ballymena%20BT43%205AF&amp;output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="last">
+    <svg class="drip drip--up" viewBox="0 0 1440 84" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0H1440 V24H1378C1378 53 1376 77 1366 77C1356 77 1354 53 1354 24H1291C1291 46 1289 63 1280 63C1270 63 1268 46 1268 24H1223C1223 47 1220 65 1211 65C1202 65 1200 47 1200 24H1116C1116 39 1115 52 1108 52C1101 52 1099 39 1099 24H1059C1059 48 1057 68 1046 68C1035 68 1032 48 1032 24H995C995 54 993 79 981 79C969 79 966 54 966 24H891C891 36 889 46 879 46C869 46 867 36 867 24H832C832 34 829 42 820 42C811 42 808 34 808 24H762C762 33 761 41 753 41C745 41 743 33 743 24H680C680 51 678 74 669 74C660 74 658 51 658 24H592C592 44 589 60 579 60C569 60 567 44 567 24H492C492 39 490 51 481 51C472 51 470 39 470 24H374C374 51 371 74 359 74C347 74 344 51 344 24H266C266 38 264 49 256 49C247 49 245 38 245 24H193C193 50 192 71 185 71C178 71 177 50 177 24H118C118 41 115 55 104 55C93 55 90 41 90 24H-4C-4 33 -6 40 -17 40C-29 40 -31 33 -31 24H0Z"/></svg>
+    <div class="wrap">
+      <h2>Hungry <span>yet?</span></h2>
+      <p>The whole menu is a couple of taps away. Order for collection or delivery.</p>
+      <div class="btns">
+        <a class="btn btn--dark" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">Start your order</a>
+        <a class="btn" href="tel:+447946291019" style="background:transparent;color:var(--forest);border-color:var(--forest);box-shadow:none">Call 07946 291019</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="foot__brand"><img src="img/logo-web.png" width="460" height="540" alt="">Digsy's Diner &middot; 72-74 Lower Mill Street, Ballymena</span>
+    <span>Website preview by <a href="../">Owen Wilkinson</a></span>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Order">
+  <span><b data-bar-status>Digsy's Diner</b><span data-bar-note>Collection or delivery</span></span>
+  <a class="btn" href="https://www.food-order.net/index.php/web_orders/home/SllGS0tV" target="_blank" rel="noopener">Order now</a>
+</div>
+
+<script>
+(function () {
+  /* Opening hours, from Digsy's own order site: Sunday is 0. */
+  var HOURS = {0: null, 1: null, 2: null, 3: [16, 20], 4: [12, 20], 5: [12, 20], 6: [12, 20]};
+  var NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  function clock(h) { return (h % 12 || 12) + (h < 12 ? "am" : "pm"); }
+
+  function status(now) {
+    var d = now.getDay(), h = now.getHours() + now.getMinutes() / 60, t = HOURS[d];
+    if (t && h >= t[0] && h < t[1]) return {open: true, head: "Open now", note: "Until " + clock(t[1]) + " tonight"};
+    if (t && h < t[0]) return {open: false, head: "Opens at " + clock(t[0]), note: "Today, " + NAMES[d]};
+    for (var i = 1; i <= 7; i++) {
+      var nd = (d + i) % 7;
+      if (HOURS[nd]) return {open: false, head: "Opens " + (i === 1 ? "tomorrow" : NAMES[nd]),
+        note: "From " + clock(HOURS[nd][0])};
+    }
+    return {open: false, head: "Closed", note: ""};
+  }
+
+  function paint() {
+    var s = status(new Date());
+    var neon = document.getElementById("neon");
+    if (neon) {
+      neon.classList.toggle("is-closed", !s.open);
+      neon.querySelector("[data-word]").textContent = s.open ? "Open" : "Closed";
+      neon.querySelector("[data-note]").innerHTML = "<b>" + s.head + "</b>" + s.note;
+    }
+    var bs = document.querySelector("[data-bar-status]"), bn = document.querySelector("[data-bar-note]");
+    if (bs) bs.textContent = s.open ? "Open now" : s.head;
+    if (bn) bn.textContent = s.note;
+    var row = document.querySelector('.hours tr[data-day="' + new Date().getDay() + '"]');
+    document.querySelectorAll(".hours tr").forEach(function (r) { r.classList.remove("is-today"); });
+    if (row) row.classList.add("is-today");
+  }
+  paint();
+  setInterval(paint, 60000);
+
+  /* menu tabs: click, or arrow keys along the row */
+  var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
+  function show(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) tab.focus();
+    tab.scrollIntoView({block: "nearest", inline: "nearest"});
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { show(t); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); show(tabs[(i + 1) % tabs.length], true); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(tabs[(i - 1 + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
